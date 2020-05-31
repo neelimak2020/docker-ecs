@@ -27,12 +27,9 @@ stage('run container on server')
 {
 def dockerRun='docker run -p 80:8080 d -name my-app neelima2020/my-app:1.0.0'
 
-withCredentials([
-sshUserPrivateKey(credentialsId: 'sshkey', 
-keyFileVariable: 'ssh-key',
-usernameVariable: 'ec2-user'
-)]) {
-       sh "ssh -o StrickHostKeyChecking=no ${ec2-user}@13.57.240.69 -i ${ssh-key} ${dockerRun}"  
+     sshagent(['sshkey']) {
+
+       sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.19.240 ${dockerRun}"
 
 }
 }
