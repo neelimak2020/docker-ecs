@@ -25,7 +25,7 @@ sh 'docker push neelima2020/my-app:1.0.0'
 
 stage('run container on server')
 {
-def dockerRun='docker run -p 80:80800d -name my-app neelima2020/my-app:1.0.0'
+def dockerRun='docker run -p 80:8080 d -name my-app neelima2020/my-app:1.0.0'
 
 withCredentials([
 sshUserPrivateKey(credentialsId: 'ec2-server', 
