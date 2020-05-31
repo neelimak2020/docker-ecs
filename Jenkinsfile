@@ -25,7 +25,6 @@ sh 'docker push neelima2020/my-app1:latest'
 
 stage('run container on server')
 {
-       sh 'docker pull neelima2020/my-app1:latest'
 def dockerRun='docker run -p 80:8080 d -name my-app neelima2020/my-app1:latest'
 
      sshagent(['sshkey']) {
