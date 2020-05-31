@@ -5,6 +5,11 @@ git (credentialsId: 'github',
 url: 'https://github.com/neelimak2020/docker-jenkins.git',
 branch:'master')
 }
+       
+  stage('Build DockerImage'){
+sh 'docker --version'
+}
+     
 
 stage('Build DockerImage'){
 sh 'docker build -t neelima2020/my-app:1.0.0 .'
