@@ -12,7 +12,7 @@ sh 'docker --version'
      
 
 stage('Build DockerImage'){
-sh 'docker build -t neelima2020/my-app .'
+sh 'docker build -t neelima2020/my-app1:latest .'
 }
 
 stage('Push Docker Image'){
@@ -20,13 +20,13 @@ stage('Push Docker Image'){
 withCredentials([string(credentialsId: 'DockerPWD', variable: 'DockerPWD')]) {
     sh "docker login -u neelima2020 -p ${DockerPWD}"
 }
-sh 'docker push neelima2020/my-app'
+sh 'docker push neelima2020/my-app1:latest'
 }
 
 stage('run container on server')
 {
-       sh 'docker pull neelima2020/my-app'
-def dockerRun='docker run -p 80:8080 d -name my-app neelima2020/my-app'
+       sh 'docker pull neelima2020/my-app1:latest'
+def dockerRun='docker run -p 80:8080 d -name my-app neelima2020/my-app1:latest'
 
      sshagent(['sshkey']) {
 
