@@ -29,7 +29,6 @@ usernameVariable: 'ec2-user'
 )]) {
 sh 'ssh -o StrickHostKeyChecking=no ec2-user@ -i ec2key ${dockerRun}'  
 
-sh 'docker run -p 80:80800d -name my-app neelima2020/my-app:1.0.0'
 }
 }
 
