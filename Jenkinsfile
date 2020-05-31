@@ -32,7 +32,7 @@ sshUserPrivateKey(credentialsId: 'sshkey',
 keyFileVariable: 'ssh-key',
 usernameVariable: 'ec2-user'
 )]) {
-sh "ssh -o StrickHostKeyChecking=no ec2-user@ -i ${ssh-key} ${dockerRun}"  
+       sh "ssh -o StrickHostKeyChecking=no ${ec2-user}@13.57.240.69 -i ${ssh-key} ${dockerRun}"  
 
 }
 }
